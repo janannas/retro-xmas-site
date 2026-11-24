@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="135" viewBox="0 0 180 135">
+  <rect width="180" height="135" fill="#C9D2F5"/>
+  <rect x="2" y="2" width="176" height="131" fill="none" stroke="#000080" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="2" y1="2" x2="178" y2="133" stroke="#000080" stroke-opacity="0.2"/>
+  <line x1="178" y1="2" x2="2" y2="133" stroke="#000080" stroke-opacity="0.2"/>
+  <text x="90.0" y="74.83333333333333" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#800000">BILD 180×135</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31">
+  <rect width="88" height="31" fill="#000"/>
+  <rect x="1" y="1" width="86" height="29" fill="#000080"/>
+  <rect x="1" y="1" width="20" height="29" fill="#8b0000"/>
+  <text x="11" y="21" text-anchor="middle" font-family="Verdana, Arial, sans-serif" font-size="14" fill="#fff">&#9733;</text>
+  <text x="54" y="13" text-anchor="middle" font-family="Verdana, Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffff00">BEST VIEWED</text>
+  <text x="54" y="24" text-anchor="middle" font-family="Verdana, Arial, sans-serif" font-size="8" fill="#ffff00">800 x 600</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="50" viewBox="0 0 140 50">
+  <defs><pattern id="s" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <rect width="10" height="20" fill="#000"/><rect x="10" width="10" height="20" fill="#ffcc00"/></pattern></defs>
+  <rect width="140" height="50" fill="url(#s)"/>
+  <rect x="8" y="10" width="124" height="30" fill="#ffcc00" stroke="#000" stroke-width="2"/>
+  <text x="70" y="23" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">UNDER</text>
+  <text x="70" y="35" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">CONSTRUCTION
+    <animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></text>
+</svg>

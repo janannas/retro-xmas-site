@@ -1,0 +1,50 @@
+/* Shared styles. Most of the 90s look lives in the HTML itself
+   (tables, <font>, <center>, bgcolor), on purpose. This file only
+   holds what every page repeats. */
+
+body {
+  margin: 12px 0;
+  background-color: #1b2a5c;           /* fallback if the tile doesn't load */
+  background-image: url("img/bg-snow.svg");
+  color: #000080;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 17px;
+}
+
+a         { color: #5588aa; text-decoration: none; font-weight: bold; }
+a:visited { color: #800000; }
+a:hover   { color: #A92546; text-decoration: underline; }
+a img     { border: 0; }
+
+h1, h2, h3 {
+  font-family: "Book Antiqua", Palatino, Georgia, serif;
+  color: #800000;
+  margin: 6px 0;
+}
+h1 { font-size: 40px; color: #A92546; letter-spacing: 3px; text-shadow: 2px 2px 0 #ffd700; }
+h2 { font-size: 26px; }
+h3 { font-size: 20px; }
+
+/* panels: the white/navy 3px frames from the reference site */
+.panel  { background: #ffffff; border: 3px solid #000080; }
+.side   { background: #C9D2F5; border: 3px solid #ffffff; }
+.band   { background: #C9D2F5; border: 3px solid #ffffff; }
+.framed { border: 3px solid #000080; background: #000; }
+
+.date   { font-family: Georgia, serif; font-size: 13px; color: #46302B; font-style: italic; }
+.small  { font-size: 12px; font-family: Verdana, Arial, sans-serif; }
+
+.post p { text-align: justify; }
+.post img.left  { float: left;  margin: 0 12px 6px 0; }
+.post img.right { float: right; margin: 0 0 6px 12px; }
+.clear  { clear: both; }
+
+marquee {
+  font-family: "Book Antiqua", Georgia, serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffd700;
+  background: #8b0000;
+  border: 2px solid #ffd700;
+  padding: 4px 0;
+}

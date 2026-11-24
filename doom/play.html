@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+  The only page on the site with JavaScript. It's loaded inside an <iframe> on doom.html.
+  Based on src/index.html from https://github.com/cloudflare/doom-wasm (GNU GPL v2).
+  Files that must sit next to this page: see doom/README.md.
+-->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Doom</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #000; overflow: hidden; }
+  /* the canvas must not have any border or padding, or mouse coords will be wrong */
+  canvas { display: block; width: 640px; height: 400px; background: #000; }
+  #status {
+    position: absolute; left: 0; right: 0; top: 45%;
+    text-align: center; color: #ffd700;
+    font: bold 16px "Courier New", monospace;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+<div id="status">Laddar Doom&hellip;</div>
+
+<script>
+  var statusEl = document.getElementById("status");
+
+  // Browsers block loading the game files from file:// pages.
+  if (location.protocol === "file:") {
+    statusEl.innerHTML = "Doom m&aring;ste k&ouml;ras via en webbserver.<br>" +
+      "K&ouml;r <code>python3 -m http.server</code> och &ouml;ppna http://localhost:8000/doom.html";
+    throw new Error("Opened via file:// - start a local server (see README.md)");
+  }
+
+
+  var commonArgs = [
+    "-iwad", "freedoom2.wad",  // base game data
+    "-file", "map.wad",        // our own MAP01
+    "-warp", "1",              // start straight on MAP01
+    "-window", "-nogui", "-nomusic",
+    "-config", "default.cfg",
+    "-servername", "doomflare"
+  ];
+
+  var Module = {
+    noInitialRun: true,
+    onRuntimeInitialized: function () {
+      statusEl.textContent = "";
+      (Module.callMain || callMain)(commonArgs);
+    },
+    preRun: function () {
+      Module.FS.createPreloadedFile("", "freedoom2.wad", "freedoom2.wad", true, true);
+      Module.FS.createPreloadedFile("", "map.wad", "map.wad", true, true);
+      Module.FS.createPreloadedFile("", "default.cfg", "default.cfg", true, true);
+    },
+    canvas: (function () {
+      var canvas = document.getElementById("canvas");
+      canvas.addEventListener("webglcontextlost", function (e) {
+        alert("WebGL context lost. Ladda om sidan.");
+        e.preventDefault();
+      }, false);
+      return canvas;
+    })(),
+    print: function (text) { console.log(text); },
+    printErr: function (text) { console.error(text); },
+    setStatus: function (text) { if (text) console.log(text); },
+    totalDependencies: 0,
+    monitorRunDependencies: function (left) {
+      this.totalDependencies = Math.max(this.totalDependencies, left);
+      if (left) statusEl.textContent =
+        "Laddar… (" + (this.totalDependencies - left) + "/" + this.totalDependencies + ")";
+    }
+  };
+
+  // Click anywhere to give the game keyboard focus (needed inside an iframe).
+  document.addEventListener("click", function () { Module.canvas.focus(); });
+
+  window.onerror = function () {
+    statusEl.textContent = "Doom kunde inte starta – se doom/README.md";
+  };
+
+  // Load the engine (built from doom-wasm) last, once Module is set up.
+  var engine = document.createElement("script");
+  engine.src = "websockets-doom.js";
+  engine.onerror = function () { statusEl.textContent = "Doom saknas – se doom/README.md"; };
+  document.body.appendChild(engine);
+</script>
+</body>
+</html>
