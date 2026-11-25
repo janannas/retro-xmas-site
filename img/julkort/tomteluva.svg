@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="70" viewBox="0 0 90 70">
+  <!-- Santa hat drawn for this site (public domain) -->
+  <path d="M8 52 C 18 22, 42 6, 66 10 C 78 12, 84 24, 80 36 C 74 26, 64 22, 58 26 C 66 34, 70 44, 70 52 Z"
+        fill="#c8102e" stroke="#7a0010" stroke-width="2"/>
+  <path d="M22 30 C 34 18, 50 14, 62 16" fill="none" stroke="#e8364d" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <rect x="2" y="48" width="74" height="16" rx="8" fill="#ffffff" stroke="#c9c9c9" stroke-width="1.5"/>
+  <circle cx="81" cy="40" r="8" fill="#ffffff" stroke="#c9c9c9" stroke-width="1.5"/>
+</svg>

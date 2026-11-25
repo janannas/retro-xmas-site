@@ -147,6 +147,86 @@ h3 { font-size: 20px; }
 .orn-a { left: 2px;   top: 140px; }
 .orn-b { left: 134px; top: 140px; }
 
+/* home page "Andra kändisar" post: photos in gilded frames hung in a
+   crooked row, each one tilted and nudged up or down, with a brass
+   name plaque underneath. */
+.fame-wall {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  margin: 10px 0 6px;
+}
+.fame {
+  width: 124px; margin: 8px 2px 14px;
+  text-align: center;
+}
+.fame img {
+  display: block; margin: 0 auto;
+  object-fit: cover;
+  padding: 2px;
+  background: #fffaf0;
+  border: 4px ridge #d4a017;
+  outline: 1px solid #6b4a00;
+  box-shadow: 2px 2px 0 #000080;
+}
+.plaque {
+  display: inline-block;
+  margin-top: 6px; padding: 1px 6px;
+  background: #ffd700;
+  border: 1px solid #8a6d00;
+  border-radius: 2px;
+  font-family: Georgia, serif; font-size: 12px; font-style: italic; line-height: 1.2;
+  color: #800000;
+}
+.fame-name {
+  display: block;
+  margin-top: 3px;
+  font-family: Georgia, serif; font-size: 11px; font-weight: bold;
+  color: #000080;
+}
+.f1 { transform: translateY(0)     rotate(-4deg); }
+.f2 { transform: translateY(14px)  rotate(3deg); }
+.f3 { transform: translateY(-4px)  rotate(-2deg); }
+.f4 { transform: translateY(12px)  rotate(4deg); }
+.f5 { transform: translateY(0)     rotate(-3deg); }
+
+/* right column: countdown to Christmas Eve, styled as a tear-off
+   calendar page with binder rings and a candy-cane striped border */
+.countdown {
+  position: relative;
+  width: 118px; margin: 18px auto 14px; padding: 0 0 6px;
+  background: #fffaf0;
+  border: 6px solid transparent;
+  border-image: repeating-linear-gradient(45deg, #c8102e 0 6px, #ffffff 6px 12px) 6;
+  box-shadow: 3px 3px 0 #000080;
+  transform: rotate(2deg);
+  text-align: center;
+}
+.cd-rings {
+  position: absolute; left: 0; right: 0; top: -16px;
+  display: flex; justify-content: space-around;
+}
+.cd-rings span {
+  width: 8px; height: 18px;
+  border: 3px solid #808080; border-radius: 6px;
+  background: #C9D2F5;
+}
+.cd-title {
+  background: #2e7d32;
+  color: #ffd700;
+  font-family: "Book Antiqua", Georgia, serif; font-size: 12px; font-weight: bold;
+  letter-spacing: 1px;
+  padding: 5px 0 3px;
+  border-bottom: 2px solid #ffd700;
+}
+.cd-digits {
+  font-family: "Book Antiqua", Georgia, serif; font-size: 58px; font-weight: bold;
+  line-height: 1; margin: 8px 0 2px;
+  color: #c8102e; text-shadow: 2px 2px 0 #ffd700;
+}
+.cd-label {
+  font-family: Georgia, serif; font-size: 12px; font-style: italic;
+  color: #000080; margin: 0 4px 2px;
+}
+.cd-holly { color: #2e7d32; font-size: 13px; letter-spacing: 4px; }
 marquee {
   font-family: "Book Antiqua", Georgia, serif;
   font-size: 22px;
@@ -156,3 +236,56 @@ marquee {
   border: 2px solid #ffd700;
   padding: 4px 0;
 }
+
+/* ---------- julkort.html: printable vintage Christmas cards ---------- */
+.jk-sheet {
+  background: #ffffff;
+  border: 3px double #000080;
+  padding: 10px 8px 14px;
+}
+.jk-intro { text-align: center; color: #304B5F; font-style: italic; margin: 8px 20px 4px; }
+.jk-cell { width: 50%; padding-top: 18px; }
+.jk-card {
+  display: inline-block;
+  background: #fffaf0;
+  border: 5px solid #ffffff;
+  outline: 3px solid #000080;
+  box-shadow: 4px 4px 0 #C9D2F5;
+  padding: 8px 8px 6px;
+}
+.jk-pic { position: relative; }
+.jk-pic img { display: block; margin: 0 auto; object-fit: cover; border: 1px solid #b0b0b0; }
+.jk-pic img.jk-hat {
+  position: absolute; left: 108px; top: 22px;
+  border: 0; transform: scaleX(-1) rotate(12deg);
+}
+.jk-greet {
+  font-family: "Book Antiqua", Georgia, serif; font-size: 18px; font-style: italic; font-weight: bold;
+  color: #A92546; margin-top: 6px;
+}
+.jk-title {
+  font-family: "Times New Roman", serif; font-size: 16px; font-weight: bold;
+  color: #336699; margin: 10px 0 4px;
+}
+.jk-print {
+  font-family: Verdana, Arial, sans-serif; font-size: 12px; font-weight: bold;
+  color: #ffffff; background: #2e7d32;
+  border: 2px outset #66bb6a;
+  padding: 3px 10px; cursor: pointer;
+}
+.jk-print:active { border-style: inset; }
+
+/* When a card's print button is used, print that card alone, large and centered. */
+@media print {
+  html:has(body.jk-print-one), body.jk-print-one { height: 100vh; overflow: hidden; }
+  body.jk-print-one { background: #ffffff; margin: 0; }
+  body.jk-print-one * { visibility: hidden; }
+  body.jk-print-one .jk-printing,
+  body.jk-print-one .jk-printing * { visibility: visible; }
+  body.jk-print-one .jk-printing {
+    position: fixed; left: 50%; top: 40px;
+    transform: translateX(-50%) scale(1.6); transform-origin: top center;
+    box-shadow: none;
+  }
+}
+

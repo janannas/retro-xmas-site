@@ -43,6 +43,8 @@
           -->
           <a href="videos.html"><img src="img/buttons/btn-julvideor.svg" width="160" height="40"
               alt="Julvideor"></a><br><br>
+          <a href="julkort.html"><img src="img/buttons/btn-julkort.svg" width="160" height="40"
+              alt="Utskrivbara julkort"></a><br><br>
           <img src="img/clipart/snow-globe.gif" width="150" height="150" alt="Snö"><br><br>
           <div class="ribbon">&#10022; Husets inv&aring;nare &#10022;</div>
           <div class="oval-frame">
@@ -135,7 +137,8 @@
                   <span class="date">Postat 24 november 2026</span>
                   <p>
                     <img class="left" src="img/clipart/santa-2.png" width="150" height="143" alt="Tomten">
-                    Festen sker den 12:e december, dörrarna öppnar kl.18:00 Vi bjuder på Glögg, medtag annat du önskar
+                    Festen sker den 12:e december, dörrarna öppnar kl.18:00 Vi bjuder på Glögg och vin. Medtag annat du
+                    önskar
                     dricka.
                     <br />
                     Vi kommer skicka ut SMS med portkoden, saknar du en på dagen så SMS:a oss istället och be om den.
@@ -179,13 +182,46 @@
                 </div>
                 <center><img src="img/divider-stars.svg" width="420" height="22" alt="* * *"></center>
 
+                <!-- POST: ANDRA KÄNDISAR -->
+                <div class="post">
+                  <h2>&#9733; Andra k&auml;ndisar &#9733;</h2>
+                  <span class="date">Postat 24 november 2026</span>
+                  <p>
+                    Katterna &auml;r inte de enda stj&auml;rnorna i v&aring;r bekantskapskrets. H&auml;r &auml;r
+                    n&aring;gra av
+                    v&aring;ra v&auml;nners fyrbenta k&auml;ndisar, f&aring;ngade p&aring; bild n&auml;r de minst anade
+                    det.
+                    Autografer delas ut i m&aring;n av tid och godis.
+                  </p>
+                  <div class="fame-wall">
+                    <div class="fame f1"><img src="img/photos/hund-soffa.jpg" width="110" height="146"
+                        alt="Hunden sover i soffan"><span class="plaque">Sofflocket</span><span
+                        class="fame-name">Lulu</span></div>
+                    <div class="fame f2"><img src="img/photos/hund-matta.jpg" width="110" height="146"
+                        alt="Hunden vilar på mattan"><span class="plaque">Mattans drottning</span><span
+                        class="fame-name">Valter</span></div>
+                    <div class="fame f3"><img src="img/photos/kanin-gra.jpg" width="110" height="146"
+                        alt="En luddig grå kanin på parkettgolvet"><span class="plaque">Dammtussen</span><span
+                        class="fame-name">Rut</span></div>
+                    <div class="fame f4"><img src="img/photos/mattans-drottning-promenad.jpg" width="110" height="146"
+                        alt="Mattans drottning på promenad i rött koppel"><span class="plaque">Mattans drottning
+                        p&aring; promenad</span><span class="fame-name">Valter</span></div>
+                    <div class="fame f5"><img src="img/photos/kanin-vit.jpg" width="110" height="146"
+                        alt="En luddig vit kanin som äter ett grässtrå"><span class="plaque">Sn&ouml;bollen</span><span
+                        class="fame-name">Harry</span></div>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <center><img src="img/divider-stars.svg" width="420" height="22" alt="* * *"></center>
+
                 <!-- POST 3 -->
                 <div class="post">
                   <h2>Julfestens plannering inleds</h2>
                   <span class="date">Postat 24 november 2026</span>
                   <p>
                     <span class="snow-frame left">
-                      <img class="sf-photo" src="img/photos/tintin.jpg" width="300" height="169" alt="Kvällen på Tintin">
+                      <img class="sf-photo" src="img/photos/tintin.jpg" width="300" height="169"
+                        alt="Kvällen på Tintin">
                       <img class="sf-snow" src="img/gifs/snow-overlay.gif" width="300" height="169" alt="">
                       <span class="sf-caption">&#10052; Tintin, d&auml;r planerna smiddes &#10052;</span>
                     </span>
@@ -215,11 +251,30 @@
           <br>
           <font face="Georgia" color="#800000" size="2"><b>Du &auml;r bes&ouml;kare nr:</b></font><br>
           <img src="img/counter.svg" width="92" height="24" alt="002412"><br><br>
-          <font face="Georgia" color="#800000" size="2"><b>Andra k&auml;ndisar:</b></font><br>
-          <img class="polaroid" src="img/photos/hund-soffa.jpg" width="120" height="160"
-            alt="Hunden sover i soffan"><br>
-          <img class="polaroid" src="img/photos/hund-matta.jpg" width="120" height="160"
-            alt="Hunden vilar på mattan"><br><br>
+          <div class="countdown">
+            <div class="cd-rings"><span></span><span></span><span></span></div>
+            <div class="cd-title">JULKALENDER</div>
+            <div class="cd-digits" id="cd-days">??</div>
+            <div class="cd-label" id="cd-label">dagar kvar till julafton!</div>
+            <div class="cd-holly">&#10047; &#10052; &#10047;</div>
+          </div>
+          <script>
+            (function () {
+              var now = new Date(), y = now.getFullYear();
+              var eve = new Date(y, 11, 24);
+              if (now.getMonth() === 11 && now.getDate() >= 24 && now.getDate() <= 26) {
+                document.getElementById("cd-days").innerHTML = "0";
+                document.getElementById("cd-label").innerHTML = "GOD JUL!!!";
+                return;
+              }
+              if (now > eve) eve = new Date(y + 1, 11, 24);
+              var today = new Date(y, now.getMonth(), now.getDate());
+              var days = Math.round((eve - today) / 86400000);
+              document.getElementById("cd-days").innerHTML = days;
+              if (days === 1) document.getElementById("cd-label").innerHTML = "dag kvar till julafton!";
+            })();
+          </script>
+          <br>
           <img src="img/clipart/snowman.png" width="80" height="128" alt="Snögubbe"><br><br>
           <img src="img/badges/god-jul.svg" width="88" height="31" alt="God Jul"><br>
           <img src="img/badges/santa-ok.svg" width="88" height="31" alt="Santa approved"><br>
