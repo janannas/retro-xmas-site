@@ -103,7 +103,6 @@
           </td></tr></table>
           <p><i>Katterna h&auml;lsar alla sina v&auml;nner en riktigt god jul. Mjau!</i></p>
           <img src="img/divider-stars.svg" width="420" height="22" alt="* * *"><br><br>
-          <img src="img/placeholder/banner-468x60.svg" width="468" height="60" alt="Platshållare"><br><br>
           <img src="img/clipart/santa-2.png" width="160" height="153" alt="Tomten">
         </center>
 
@@ -119,23 +118,22 @@
         <div class="cd-rings"><span></span><span></span><span></span></div>
         <div class="cd-title">JULKALENDER</div>
         <div class="cd-digits" id="cd-days">??</div>
-        <div class="cd-label" id="cd-label">dagar kvar till julafton!</div>
+        <div class="cd-label" id="cd-label">dagar kvar till festen!</div>
         <div class="cd-holly">&#10047; &#10052; &#10047;</div>
       </div>
       <script>
         (function () {
           var now = new Date(), y = now.getFullYear();
-          var eve = new Date(y, 11, 24);
-          if (now.getMonth() === 11 && now.getDate() >= 24 && now.getDate() <= 26) {
+          var eve = new Date(2026, 11, 12); // festen: 12 december
+          if (now >= eve) {
             document.getElementById("cd-days").innerHTML = "0";
-            document.getElementById("cd-label").innerHTML = "GOD JUL!!!";
+            document.getElementById("cd-label").innerHTML = (now - eve < 86400000) ? "FEST IKV&Auml;LL!!!" : "Tack f&ouml;r festen!";
             return;
           }
-          if (now > eve) eve = new Date(y + 1, 11, 24);
           var today = new Date(y, now.getMonth(), now.getDate());
           var days = Math.round((eve - today) / 86400000);
           document.getElementById("cd-days").innerHTML = days;
-          if (days === 1) document.getElementById("cd-label").innerHTML = "dag kvar till julafton!";
+          if (days === 1) document.getElementById("cd-label").innerHTML = "dag kvar till festen!";
         })();
       </script>
       <br>
